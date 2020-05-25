@@ -62,7 +62,9 @@ Jot:
     9. in main.dart create a list entry to store these transactions
     10. create a column for loading transactions in main.dart , take transaction list and create a map of it. instead of an explicit widgets, create a list of widgets
     11. .map returns an iterable so we need to explicitly convert into a list using .toList (see notes1 for more)
-    
+
+74.
+    12. transaction should be shown as  card, with two rows and the second row having two columns, and each of the row element is in a container
 
 
 
