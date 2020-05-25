@@ -80,4 +80,41 @@ Jot:
     set crossAxisAlignment to left for title and date
     adjust text style properties
 
+Jot:
+    you configure widgets via their constructor arguments - that includes styling config.
+    Container has 'decoration' argument that uses BoxDecoration() and creates a decoration object which you can configure in many different ways (e.g. border, radius, color) via its constructor arguments.
+
+78.
+    Container: 
+        takes only one widget as children
+        allows to add padding, decoration, border, color, padding, 
+        flexible width: by default takes child width, but also takes parent width if one, also set width on the container - order exists
+        perfect for custom styling and alignment
+    Column/Row:
+        takes multiple children as widgets
+        allows CrossAxisAlignment and mainAxisAlignment but that's it no styling options
+        Column takes full available height
+        Row takes full available width
+        must-use if widgets sit next to above/below
+    can mix and match the above two
+
+79.
+    String interpolation:
+        1. + works
+        2. interpolate: '\$${tx.amount}'
+
+80.
+    Dates
+    look for 'dart dateformat' - look for pub.dev - has packages that we can install in our dart project
+    look for 'intl'
+    add the dependency in pubspec.yaml under 'dependencies' section
+    saving should get the package automatically, if not run flutter packages get - to get all packages downloaded
+    source code the dependencies package (ex: node_modules) is not stored in the project folder but in /user folder, just a connection is established
+    import 'package:intl/intl.dart';
+    and use as DateFormat().format(tx.dateTime) - then stop and start the simulator for the package to be reflected
+    to define custom patterns
+        DateFormat('yyyy-mm-dd')
+        or just call that pattern as DateFormat().add_yMMMd()
+
+
 
