@@ -1,0 +1,38 @@
+widgets/styling/adding logic
+Layout widgets:
+    Row: take multiple children
+        flexible widget
+        expanded widget
+        
+    Column : take multiple children
+        flexible widget
+        expanded widget
+
+    Container
+
+Content container:
+    Stack: items on top of each other (image with text in foreground)
+    Card: prestyled container (padding/boxshadow) - with default styles
+
+Repeating content:
+    List View:
+        List Tile: 
+    Grid View:
+
+Content Types:
+    Icon
+    text
+    image
+
+User Input
+    text field
+    raised button
+
+Hidden widget:
+    inkwell (tap, doubletap)
+    gesture
+
+
+
+
+
