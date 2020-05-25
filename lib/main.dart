@@ -1,3 +1,4 @@
+import './transaction.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,6 +20,21 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  final List<Transaction> transactions = [
+    Transaction(
+      id: 't0',
+      title: 'Croissants',
+      amount: 12.99,
+      dateTime: DateTime.now(),
+    ),
+    Transaction(
+      id: 't1',
+      title: 'India Bazaar',
+      amount: 32.99,
+      dateTime: DateTime.now(),
+    )
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,25 +42,22 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           Container(
             width: double.infinity,
             child: Card(
-              child: Text('this is first way of having card with width set based on its parent container than its children'),
+              child: Text('chart'),
               color: Colors.grey,
               elevation: 5,
             ),
           ),
-          Card(
-            child: Container(
-              width: double.infinity,
-              child: Text('this is second way of having card with width set based on its children /container/ rather than /text/ - same result as step 1'),
-            ),
-            color: Colors.grey,
-            elevation: 5,
-          ),
-          Card(
-            child: Text('Transactions'),
+          Column(
+            children: transactions.map((tx) {
+              return Card(
+                child: Text(tx.title),
+              );
+            }).toList(),
           )
         ],
       ),

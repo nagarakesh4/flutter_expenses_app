@@ -35,12 +35,34 @@ Hidden widget:
 
 70. Add scaffolding new flutter project
 
-1. add column widget in body, with two children containing card widgets for chart of expense and list of transactions
-2. card by default assumes the size of its children, so change the size of child, so change size of text which means change size of its parent, to break this dependency, there are 2 ways:
-     - use Container wrap on top of card child and set its width to 100, there by the card will no longer rely on the size of text but will rely on size of container with space as double.infinitly  (take as much as width as it can)
-     - instead of wrapping the child of card with container, wrap the card itself with container and it is same as the previous one. the implication however is the card by default depends on its child (text) unless there is a parent (container) with a container, 
-        but this option doesn't work with column, column always depends on its children (the broadest width), card however takes its parent as the measurement
-        
+    1. add column widget in body, with two children containing card widgets for chart of expense and list of transactions
+    2. card by default assumes the size of its children, so change the size of child, so change size of text which means change size of its parent, to break this dependency, there are 2 ways:
+        - use Container wrap on top of card child and set its width to 100, there by the card will no longer rely on the size of text but will rely on size of container with space as double.infinitly  (take as much as width as it can)
+        - instead of wrapping the child of card with container, wrap the card itself with container and it is same as the previous one. the implication however is the card by default depends on its child (text) unless there is a parent (container) with a container, 
+            but this option doesn't work with column, column always depends on its children (the broadest width), card however takes its parent as the measurement
+
+71.
+    3. column has crossAxisAlignment (left to right), default is top to bottom (mainAxisAlignment)
+        mainAxisAlignment.center (default is start) - is like flex-end etc.., similar to flex the other options are available (spacebetween etc)
+        crossAxisAlignment: CrossAxisAlignment.end, will move the element on left to right to right most
+        using this the card now follows the parent width which is set by 'column' widget usign the above axis alignments
+    4. in row it is the opposite of above
+
+Jot:
+    Rows and Columns are used to organize multiple sibling widgets. (can have more than one child widget)
+    By default Columns take all the height space they can get.
+    you can absolutely have a Row in a Column, a Column in a Row or Rows in Rows / Columns in Columns.
+
+
+72.
+    5. for the app, we need to add 'transactions'. create a map to store the list of transactions
+    6. store the transaction as a separate blueprint (transaction.dart) doesnt extend stateless/stateful, and not needed to extend Widget 
+    7. it takes variables requeired and a named argument constructor
+    8. add required annotation from foundation.dart
+    9. in main.dart create a list entry to store these transactions
+    10. create a column for loading transactions in main.dart , take transaction list and create a map of it. instead of an explicit widgets, create a list of widgets
+    11. .map returns an iterable so we need to explicitly convert into a list using .toList (see notes1 for more)
+    
 
 
 
