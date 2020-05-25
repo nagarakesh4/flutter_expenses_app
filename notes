@@ -66,7 +66,18 @@ Jot:
 74.
     12. transaction should be shown as  card, with two rows and the second row having two columns, and each of the row element is in a container
 
+75.
+    13. no separate styling lang, we style widgets through arguments, so in case  if a widget doesn't have styling to it (ex: text), we need to leverage other widgets (create new or its parent)
+    14. always create margin using EdgetInsets. - margin in all direction, 'only' to specify separately, symmetric
+    15. to style the appearance of container, using decoration property that uses boxdecoration widget(not every widget will have it)
+        and inside boxdecoration widget it takes in border color, width etc
+        similarly padding takes EdgetInsets and can use .all(10) - to have padding of 10 on all sides
+76. 16. text styling
+    text will have style property and can use TextStyle widget to style the text and inside it use fontWeight property with FontWeight.bold, FontWeight is class with prop, static props are basically enums but with labels (instead of numbers)
+    and similarly font size, and the container will grow with the content
 
-
+77.
+    set crossAxisAlignment to left for title and date
+    adjust text style properties
 
 
