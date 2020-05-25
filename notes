@@ -33,6 +33,16 @@ Hidden widget:
     gesture
 
 
+70. Add scaffolding new flutter project
+
+1. add column widget in body, with two children containing card widgets for chart of expense and list of transactions
+2. card by default assumes the size of its children, so change the size of child, so change size of text which means change size of its parent, to break this dependency, there are 2 ways:
+     - use Container wrap on top of card child and set its width to 100, there by the card will no longer rely on the size of text but will rely on size of container with space as double.infinitly  (take as much as width as it can)
+     - instead of wrapping the child of card with container, wrap the card itself with container and it is same as the previous one. the implication however is the card by default depends on its child (text) unless there is a parent (container) with a container, 
+        but this option doesn't work with column, column always depends on its children (the broadest width), card however takes its parent as the measurement
+        
+
+
 
 
 
