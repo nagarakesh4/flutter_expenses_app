@@ -103,7 +103,7 @@ Jot:
         1. + works
         2. interpolate: '\$${tx.amount}'
 
-80.
+80/81.
     Dates
     look for 'dart dateformat' - look for pub.dev - has packages that we can install in our dart project
     look for 'intl'
@@ -116,5 +116,25 @@ Jot:
         DateFormat('yyyy-mm-dd')
         or just call that pattern as DateFormat().add_yMMMd()
 
+82.
+    TextField: input text widget
+    card has margin, but no padding
+    column doesnt have margin, so wrap it with container
+    and add padding inside container for adding padding 
+    adding labels is possible on TextField, by using decoration argument with InputDecoration widget as:
+    TextField(decoration: InputDecoration(labelText: 'Item Name'),),
 
+83.
+    fetching user input:
+        either save it with every keystroke in a property 
+        add variables titleInput
+        add onChanged: on TextField, 
+        onChanged: (value) => {
+                      titleInput = value
+                    },
+        properties are not final, normally we can't have changeable properties in stateless widgets because obviously we can't update UI based on its changes anyways so can't use setState()
+
+        in some cases, we are perfectly fine to change data without having any impact on UI then stateless works fine, if not
+        
+            
 

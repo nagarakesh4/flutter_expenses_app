@@ -36,6 +36,9 @@ class MyHomePage extends StatelessWidget {
     )
   ];
 
+  String itemName;
+  String itemAmount;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,8 +46,9 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        // mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
+          // chart
           Container(
             width: double.infinity,
             child: Card(
@@ -53,6 +57,40 @@ class MyHomePage extends StatelessWidget {
               elevation: 5,
             ),
           ),
+          //input - multiple widgets
+          Card(
+            elevation: 8,
+            margin: EdgeInsets.all(20),
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Item Name'),
+                    onChanged: (value) => itemName = value,
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Item Price'),
+                    onChanged: (value) => itemAmount = value,
+                  ),
+                  FlatButton(
+                    child: Text(
+                      'Add Transaction',
+                    ),
+                    textColor: Colors.blue,
+                    onPressed: () => {
+                      transactions.add({
+                        "title": itemName,
+                        "amount": itemAmount
+                      })
+                    },
+                  )
+                ],
+              ),
+            ),
+          ),
+          //transactions
           Column(
             children: transactions.map((tx) {
               return Card(
