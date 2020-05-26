@@ -136,5 +136,15 @@ Jot:
 
         in some cases, we are perfectly fine to change data without having any impact on UI then stateless works fine, if not
         
-            
+        - however flutter provides a controller way to get value of every keystroke change to final variables:
+            final titleController = TextEditingController();
+            TextEditingController - class by flutter , can be assigned to text fields using 'controller' argument
+            these controllers will auto connect text fields to user input and saves the user input and 
+            then use the above controller variable with '.text' to access the value
+            TextField(
+                decoration: InputDecoration(labelText: 'Item Price'),
+                controller: itemAmountController,
+                // onChanged: (value) => itemAmount = value,
+            ),
+            however this is just a temp solution to show that we can read value in stateless but still cannot update the state as setState will not work
 

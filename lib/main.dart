@@ -36,8 +36,11 @@ class MyHomePage extends StatelessWidget {
     )
   ];
 
-  String itemName;
-  String itemAmount;
+  // String itemName;
+  // String itemAmount;
+
+  final itemNameController = TextEditingController();
+  final itemAmountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -68,11 +71,13 @@ class MyHomePage extends StatelessWidget {
                 children: <Widget>[
                   TextField(
                     decoration: InputDecoration(labelText: 'Item Name'),
-                    onChanged: (value) => itemName = value,
+                    controller: itemNameController,
+                    // onChanged: (value) => itemName = value,
                   ),
                   TextField(
                     decoration: InputDecoration(labelText: 'Item Price'),
-                    onChanged: (value) => itemAmount = value,
+                    controller: itemAmountController,
+                    // onChanged: (value) => itemAmount = value,
                   ),
                   FlatButton(
                     child: Text(
@@ -80,10 +85,7 @@ class MyHomePage extends StatelessWidget {
                     ),
                     textColor: Colors.blue,
                     onPressed: () => {
-                      transactions.add({
-                        "title": itemName,
-                        "amount": itemAmount
-                      })
+                      print(itemNameController.text)
                     },
                   )
                 ],
