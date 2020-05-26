@@ -193,4 +193,13 @@ Jot:
         add 'SingleChildScrollView' on the body element rather than on 'UserTransactions()' widget else it wont be able to find the container height in which it should scroll
         or either wrap column inside container widget and  then set an predefined height (based on device height) and set the SingleChildScrollView on top of it
 
-    
+    88. the other way to make column scroll is to create a list View
+        list view is a column with SingleChildScrollView property, also there should be a height defined on its parent wrap because it doesn't assume any fixed height
+        container(height: 300px, listview[]) - this is how listview should be used as, if we remove the wrapping container, no list is shown
+        in the end list view is a widget that has infinite view, unlike a column which takes all of the available height on the given screen, 
+        a list view can't have a fixed height because it is a scrollable element, therefore we need mention the height explictly for the items to be shown in listview
+        now that wrapping it in a parent (container) and specify a height for parent, listview understands that there is aheight defined for its parent and then it uses that 
+        height as its height
+        Column + list view - column takes all the height it can get and list view has infinite height, this combination doesn't work
+        Column + Container_height(list view) - the height is a critical thing, we cannot hardcode, have to set this by device height
+        using a list view is better alternative and we also get other optimizations

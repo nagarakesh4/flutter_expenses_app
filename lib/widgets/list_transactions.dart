@@ -11,50 +11,53 @@ class TransactionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: transactions.map((tx) {
-        return Card(
-          elevation: 8,
-          margin: EdgeInsets.all(20),
-          child: Row(
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: 15,
-                ),
-                padding: EdgeInsets.all(10),
-                child: Text(
-                  '\$${tx.amount.toString()}',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Colors.blue,
+    return Container(
+      height: 300,
+      child: ListView(
+        children: transactions.map((tx) {
+          return Card(
+            elevation: 8,
+            margin: EdgeInsets.all(20),
+            child: Row(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 15,
                   ),
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    tx.title,
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    '\$${tx.amount.toString()}',
                     style: TextStyle(
-                      fontSize: 15,
                       fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.blue,
                     ),
                   ),
-                  Text(
-                    DateFormat().add_yMMMd().format(tx.dateTime),
-                    style: TextStyle(
-                      color: Colors.grey[500],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      tx.title,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                ],
-              )
-            ],
-          ),
-        );
-      }).toList(),
+                    Text(
+                      DateFormat().add_yMMMd().format(tx.dateTime),
+                      style: TextStyle(
+                        color: Colors.grey[500],
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          );
+        }).toList(),
+      ),
     );
   }
 }
