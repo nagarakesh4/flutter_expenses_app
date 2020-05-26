@@ -203,3 +203,13 @@ Jot:
         Column + list view - column takes all the height it can get and list view has infinite height, this combination doesn't work
         Column + Container_height(list view) - the height is a critical thing, we cannot hardcode, have to set this by device height
         using a list view is better alternative and we also get other optimizations
+
+        2. ListView[] - column + SingleChildScrollView, all widgets part of list view are rendered even if that's off screen for short list this is ok but with long list it causes lag and bad performance, flutter needs to manage them in memory
+            ListView.builder() - works similarly as listView, it only renders the widgets that are visible
+            the builder() will only render that are visible and so better performance for longer lists than listview
+
+            listview.builder() takes in itembuilder and itemCount- 
+                itemCount is total number of items
+                itemBuilder in end renders a widget (return Card)
+                    it takes two arguments
+                        transaction and index
