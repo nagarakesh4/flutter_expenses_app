@@ -4,6 +4,10 @@ class NewTransaction extends StatelessWidget {
   final itemNameController = TextEditingController();
   final itemAmountController = TextEditingController();
 
+  final Function addNewTransaction;
+
+  NewTransaction({this.addNewTransaction});
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -29,7 +33,12 @@ class NewTransaction extends StatelessWidget {
                 'Add Transaction',
               ),
               textColor: Colors.blue,
-              onPressed: () => {print(itemNameController.text)},
+              onPressed: () {
+                addNewTransaction(
+                  itemNameController.text,
+                  double.parse(itemAmountController.text),
+                );
+              },
             )
           ],
         ),

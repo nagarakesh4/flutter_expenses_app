@@ -43,7 +43,7 @@ class _UserTransactionsState extends State<UserTransactions> {
     return Column(
       children: <Widget>[
         //input - multiple widgets
-        NewTransaction(),
+        NewTransaction(addNewTransaction: _addNewTransaction),
         //transactions list
         TransactionList(
           transactions: _userTransactions,

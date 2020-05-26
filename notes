@@ -174,3 +174,13 @@ Jot:
         so we can just manipulate the object as _userTransactions.add(new_transaction)
         //add will only add the new element to the list but will not generate a new pointer
         _userTransactions.add(newTransaction);
+
+    86.
+        now new_transactions widget has a button that should invoke user_transactions widget addnewtransaction method and this can be done by passing the function reference to new_transaction widget
+        and recieve the same in new_transaction widget as 
+        
+        final Function addNewTransaction;
+
+        NewTransaction({this.addNewTransaction});
+
+        double.parse(amount) - to parse to double value
