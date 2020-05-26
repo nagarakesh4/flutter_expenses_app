@@ -3,11 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class TransactionList extends StatelessWidget {
+  //incoming transactions
+  final List<Transaction> transactions;
+
+  //constructor is initialized when transactions are received from outside
+  TransactionList({this.transactions});
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: _userTransactions.map((tx) {
+      children: transactions.map((tx) {
         return Card(
           elevation: 8,
           margin: EdgeInsets.all(20),

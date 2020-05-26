@@ -161,3 +161,16 @@ Jot:
         to avoid managing state in main.dart, create a user transactions widget and move new_transaction and transaction_list to it
         and make list transactions to stateless widget as we don't need to manage state there but instead manage state in user transactions widget
         and move the list of transactions in transaction_list.dart to _userTransactions.dart
+
+    85.
+        list transactions widget is a stateless widget implies it gets data from outside so create a constructor to receive the transactions
+        pass the user transactions array from user_transaction.dart to list_transactions.dart
+        create an addnewtransaction method in user_transaction.dart
+        this method will recieve the new transaction details and are stored in final variable and not const, why?
+        answer: because at the time of compiling the code (writing the src) we don't know the values this method recieves as transaction details, and hence not const but final
+        the new transaction details final variable will create a new Transaction object with details
+        to update this new transaction to the existing array, use setState and we can call as we are currently in user_transaction.dart which is a stateful widget
+        also _userTransactions is a final variable which implies dart stores only objects in memory and only stores the pointers in the memory, so we can't change the memory change like _userTransactions = ... ..
+        so we can just manipulate the object as _userTransactions.add(new_transaction)
+        //add will only add the new element to the list but will not generate a new pointer
+        _userTransactions.add(newTransaction);
