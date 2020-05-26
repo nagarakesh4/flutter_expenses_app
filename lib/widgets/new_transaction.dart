@@ -19,6 +19,7 @@ class NewTransaction extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             TextField(
+              autofocus: true,
               decoration: InputDecoration(labelText: 'Item Name'),
               controller: itemNameController,
               // onChanged: (value) => itemName = value,

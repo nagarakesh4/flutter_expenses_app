@@ -33,7 +33,7 @@ class _UserTransactionsState extends State<UserTransactions> {
     );
 
     setState(() {
-      //add will only add the new element to the list but will not generate a new pointer
+      //add will only add the new element to the _userTransactions but will not generate a new pointer
       _userTransactions.add(newTransaction);
     });
   }
@@ -42,7 +42,7 @@ class _UserTransactionsState extends State<UserTransactions> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        //input - multiple widgets
+        //input fields for new transaction
         NewTransaction(addNewTransaction: _addNewTransaction),
         //transactions list
         TransactionList(
