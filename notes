@@ -148,3 +148,16 @@ Jot:
             ),
             however this is just a temp solution to show that we can read value in stateless but still cannot update the state as setState will not work
 
+    84.
+        converting widget to stateful
+        move transaction.dart into models/
+        create widgets/ and add transaction_list.dart that loads transaction list
+        initialize final transactionList 
+        final List<Transaction> _userTransactions 
+        move transactions listing code from main.dart to transaction_list.dart
+        and do lifting state up - common denominator should be main.dart, so move the text input fields into a separate widget and thereby main.dart will stay stateless
+        and hence appbar, scaffold will not be rebuilt when we add a new transaction
+        move new transaction (input fields) to a stateless widget
+        to avoid managing state in main.dart, create a user transactions widget and move new_transaction and transaction_list to it
+        and make list transactions to stateless widget as we don't need to manage state there but instead manage state in user transactions widget
+        and move the list of transactions in transaction_list.dart to _userTransactions.dart
