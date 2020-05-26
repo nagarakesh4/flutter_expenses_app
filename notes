@@ -213,3 +213,7 @@ Jot:
                 itemBuilder in end renders a widget (return Card)
                     it takes two arguments
                         transaction and index
+            
+        Jot:
+            1. ListView is scrollable by default vs A Column() would have to be wrapped with a SingleChildScrollView to add scrolling.
+            2. ListView.builder() builds widgets as required, lazily rendering widget
