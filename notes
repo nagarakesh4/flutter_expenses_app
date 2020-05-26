@@ -184,3 +184,13 @@ Jot:
         NewTransaction({this.addNewTransaction});
 
         double.parse(amount) - to parse to double value
+
+        Adding new transaction is now working
+
+    87. The problem we have now is scrollable. list of transactions will show error on UI w.r.t pixel overflow. 
+        it is because the column takes full available height and row takes full available width, but not infinite amount by auto adding scrolls
+        and each column will have their own height and at some point they can't shrink, child widgets won't fit anymore and we need to add scrolling
+        add 'SingleChildScrollView' on the body element rather than on 'UserTransactions()' widget else it wont be able to find the container height in which it should scroll
+        or either wrap column inside container widget and  then set an predefined height (based on device height) and set the SingleChildScrollView on top of it
+
+    
