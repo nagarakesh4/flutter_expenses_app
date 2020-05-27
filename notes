@@ -236,3 +236,7 @@ Jot:
         in iOS TextInputType.numberWithOptions(decimal: true)
 
         '\$${transactions[index].amount.toStringAsFixed(2)}'
+    
+    90.
+        in the AppBar widget, it takes actions widget where we can add icons and iconPressed fn
+        also floatingActionButton can be added in the Scaffold widget
