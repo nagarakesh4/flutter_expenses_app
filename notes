@@ -217,3 +217,22 @@ Jot:
         Jot:
             1. ListView is scrollable by default vs A Column() would have to be wrapped with a SingleChildScrollView to add scrolling.
             2. ListView.builder() builds widgets as required, lazily rendering widget
+        
+    89.
+        to restrict a input to allow only specific types to be entered (numbers), then TextField widget has
+            keyboardType argument
+            and to submit the data on pressing submit button (tick arrow example), use onSubmitted
+            onSubmitted takes in a string, but because we need to invoke a function, we can use anonymous as
+            (_) => submitData() - anonymous function
+                - inside of anonymous function, we have to manually trigger the function
+                if we don't have anonymous function, we just pass the function reference (onPressed)
+            for onPressed, it is just a function reference (no need to have string)
+        
+        use toStringAsFixed(2) - number will be set to 2 decimal places
+
+        keyboardType: TextInputType.number,
+        onSubmitted: (_) => invokeAddTx(),  
+
+        in iOS TextInputType.numberWithOptions(decimal: true)
+
+        '\$${transactions[index].amount.toStringAsFixed(2)}'

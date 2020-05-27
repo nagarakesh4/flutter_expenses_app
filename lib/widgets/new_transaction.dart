@@ -10,6 +10,20 @@ class NewTransaction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    void invokeAddTx(){
+      final String inputTitle = itemNameController.text;
+      final inputAmount = double.parse(itemAmountController.text);
+
+      if(inputTitle.isEmpty || inputAmount < 0)
+        return;
+
+      addNewTransaction(
+        inputTitle,
+        inputAmount,
+      );
+    }
+
     return Card(
       elevation: 8,
       margin: EdgeInsets.all(20),
@@ -22,11 +36,14 @@ class NewTransaction extends StatelessWidget {
               autofocus: true,
               decoration: InputDecoration(labelText: 'Item Name'),
               controller: itemNameController,
+              onSubmitted: (_) => invokeAddTx(),
               // onChanged: (value) => itemName = value,
             ),
             TextField(
               decoration: InputDecoration(labelText: 'Item Price'),
               controller: itemAmountController,
+              keyboardType: TextInputType.numberWithOptions(decimal: true, signed: true),
+              onSubmitted: (_) => invokeAddTx(),
               // onChanged: (value) => itemAmount = value,
             ),
             FlatButton(
@@ -34,12 +51,7 @@ class NewTransaction extends StatelessWidget {
                 'Add Transaction',
               ),
               textColor: Colors.blue,
-              onPressed: () {
-                addNewTransaction(
-                  itemNameController.text,
-                  double.parse(itemAmountController.text),
-                );
-              },
+              onPressed: invokeAddTx,
             )
           ],
         ),
