@@ -240,3 +240,14 @@ Jot:
     90.
         in the AppBar widget, it takes actions widget where we can add icons and iconPressed fn
         also floatingActionButton can be added in the Scaffold widget
+
+    91. 
+        on click of appbar/floating button, to show the modal sheet use 
+        showModalBottomSheet - takes in build context and widget that should be rendered inside the modal
+        new transaction input elements widget should be retruned here
+        new transaction widget takes in addNewTransaction fn reference as constructor argument
+        and _addNewTransaction has references to _userTransactions list (to push on click of add btn)
+        so copy both of these from UserTransactions widget
+        and because we are managing state here, convert main.dart HomePage widget to StatefulWidget
+        and now UserTransactions.dart can be removed as it just loads list transaction which we can directly load from main.dart
+        on press of floating action button link the onPressed fn to _addNewTransaction to open the modal sheet, it takes in the buildContext object
