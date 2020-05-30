@@ -277,3 +277,26 @@ Jot:
             holds referencs to theme data, as every widget needs that data
             Theme.of(context).primaryColorDark
             updated this in almost all places (except date - explicitly overriding it to Grey)
+        
+    94. Custom fonts:
+        assets/fonts/
+        add from google fonts
+        to start using
+        go to pubspec.yaml
+        look for 'fonts', and set family
+        can add any number of family
+        now in 'theme' under main widget, set fontFamily name same as the family value in pubspec
+        
+        if want to set in widgets, add 'style' and TextStyle(fontFamily: 'OpenSans')
+        can customize a default app bar theme
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.light().textTheme.copyWith(
+                title: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 20,
+                ),
+              ),
+        ),
+        the above will using the basic text theme and applies to all text that are marked as title in app bar
+        and to use the above for all titles in app,
+        style: Theme.of(context).textTheme.title
