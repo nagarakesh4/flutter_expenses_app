@@ -251,3 +251,15 @@ Jot:
         and because we are managing state here, convert main.dart HomePage widget to StatefulWidget
         and now UserTransactions.dart can be removed as it just loads list transaction which we can directly load from main.dart
         on press of floating action button link the onPressed fn to _addNewTransaction to open the modal sheet, it takes in the buildContext object
+    
+    92.
+        can convert new_transaction widget to stateful even though it is stateless as there is an issue while changing between input elements
+        ** i am not changing this as i didn't get the error **
+        and if at all we want to do this, then to connect state class to its parent class variables/methods
+        using 'widget' property
+        or using super.widget
+        with 'widget' we can access from state class to the properties/methods of widget class (parent class of state class)
+
+        on click of 'Add transaction' close the modal automatically by 'Navigation' property
+        
+        Navigator.of(context).pop(); - to close the top most screen that is displayed in this context 

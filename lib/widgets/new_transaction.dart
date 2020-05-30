@@ -22,6 +22,9 @@ class NewTransaction extends StatelessWidget {
         inputTitle,
         inputAmount,
       );
+
+      //close the modal sheet
+      Navigator.of(context).pop(); 
     }
 
     return Card(
