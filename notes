@@ -261,5 +261,19 @@ Jot:
         with 'widget' we can access from state class to the properties/methods of widget class (parent class of state class)
 
         on click of 'Add transaction' close the modal automatically by 'Navigation' property
-        
+
         Navigator.of(context).pop(); - to close the top most screen that is displayed in this context 
+    
+    93.
+        Theming
+            in main.dart, there is MyApp stateless widget and it has title, we can set app widge theme
+            theme takes in themeData object
+                primary swatch: based on one single color and generates shades of it
+                primary color: one single color
+            setting this, will handle other widget colors like if we don't set any color to float button then automatically based on the theme this button is set (and ofcourse we can override it )
+            and to use theme explicitly , Theme.of(context)
+            context is passed to build()
+            is obj with metadata of widget
+            holds referencs to theme data, as every widget needs that data
+            Theme.of(context).primaryColorDark
+            updated this in almost all places (except date - explicitly overriding it to Grey)

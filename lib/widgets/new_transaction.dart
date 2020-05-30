@@ -53,7 +53,7 @@ class NewTransaction extends StatelessWidget {
               child: Text(
                 'Add Transaction',
               ),
-              textColor: Colors.blue,
+              textColor: Theme.of(context).accentColor,
               onPressed: invokeAddTx,
             )
           ],
