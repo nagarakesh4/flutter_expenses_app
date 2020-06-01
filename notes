@@ -300,3 +300,10 @@ Jot:
         the above will using the basic text theme and applies to all text that are marked as title in app bar
         and to use the above for all titles in app,
         style: Theme.of(context).textTheme.title
+       
+    95. to add image, Image.asset() - part of project, Image.network() - image is loaded from network
+        also add assets in pubspec.yaml, add assets key and
+        assets:
+            - assets/images/spending-logo.png
+        add fit: Boxfit.cover - filts the image into container, here the parent is Column and column takes as much as they can get, so wrap the Image inside a container and set container height to 200, now boxfit will take height of its direct parent (ccontainer) and squeeze the image in there 
+        add SizedBox() - adds a box with specific size, takes in width and height, doesn't mandatory have to child, so if no child they can be used as seperators (empty div/s)
