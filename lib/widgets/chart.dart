@@ -39,8 +39,8 @@ class Chart extends StatelessWidget {
     });
   }
 
-  double get totalSpending{
-    return groupedTransactionValues.fold(0.0, (sum, item){
+  double get totalSpending {
+    return groupedTransactionValues.fold(0.0, (sum, item) {
       return sum + item['amount'];
     });
   }
@@ -51,15 +51,24 @@ class Chart extends StatelessWidget {
     return Card(
       elevation: 8,
       margin: EdgeInsets.all(20),
-      child: Row(
-        children: groupedTransactionValues.map((data) {
-          //display chartbar
-          return ChartBar(
-            label: data['day'],
-            spendingAmount: data['amount'],
-            spendingPercentTotal: totalSpending == 0.0 ? 0.0 : (data['amount'] as double)/totalSpending,
-          );
-        }).toList(),
+      child: Padding(
+        padding: EdgeInsets.all(10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: groupedTransactionValues.map((data) {
+            //display chartbar
+            return Flexible(
+              fit: FlexFit.tight,
+              child: ChartBar(
+                label: data['day'],
+                spendingAmount: data['amount'],
+                spendingPercentTotal: totalSpending == 0.0
+                    ? 0.0
+                    : (data['amount'] as double) / totalSpending,
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }

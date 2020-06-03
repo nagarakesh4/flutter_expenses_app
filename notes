@@ -366,3 +366,14 @@ Jot:
             (data['amount'] as double)/totalSpending
         
         now the chart is displayed
+    
+    102. set mainAxisAlignment in Row with space around 
+        mainAxisAlignment: MainAxisAlignment.spaceAround, in chart row to align the bars
+        labels on chart can become large, so wrap the chartbar widget in chart widget with Flexible widget
+        Flexible - takes fit 
+            fit: FlexFit.tight - The child is forced to fill the available space.
+            FlexFit.loose - The child can be at most as large as the available space
+        FittedBox - forces its child into its space - will wrap if needed
+
+        ** if want to add padding say to chart then wrap with Container widget and add padding property **
+        ** however if we are just adding the container to just add padding then just use Padding widget **
