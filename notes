@@ -367,13 +367,33 @@ Jot:
         
         now the chart is displayed
     
-    102. set mainAxisAlignment in Row with space around 
+    102/103. set mainAxisAlignment in Row with space around 
         mainAxisAlignment: MainAxisAlignment.spaceAround, in chart row to align the bars
         labels on chart can become large, so wrap the chartbar widget in chart widget with Flexible widget
         Flexible - takes fit 
-            fit: FlexFit.tight - The child is forced to fill the available space.
-            FlexFit.loose - The child can be at most as large as the available space
+            fit: 
+                FlexFit.tight - The child is forced to fill the available space.
+                FlexFit.loose - is default - takes only what it needs (will expand if has more text)
+                                The child can be at most as large as the available space  as its content in
+                              - sometimes we need an item to occupy twice it occupies than other FlexFit.tight items, in that case set flex property
+                                flex: 2 - 2 meaning out of available FlexFit (flex) items how much it takes, in case if there is an item of flex: 2 and then another of flex: 1, then it is 2 + 1 = 3 so 2/3 for first item and then 1/3 on the other item
+
+                                now 
+                                item1:
+                                    flex: 5, FlexFit.tight
+                                item 2:
+                                    flex: 2, FlexFit.loose
+                                
+                                technically item 2 only occupies the width that its child has and not entire of available space this is because we are using 'loose'
+                                and also flex:2 doesn't apply on that item , instead it will be applied on overall item1 and 2 and so there will be empty white spaces all around for this flex: 2 (2/7)
+                                and item 1 will still only occupy 5/7th of space even though the item2 is not occupying the remaining of 2/7th space (as 'loose')
+
+                                Expanded widget is simply the Flexible widget with FlexFit tight and therefore it has no 'fit' argument
+
         FittedBox - forces its child into its space - will wrap if needed
 
         ** if want to add padding say to chart then wrap with Container widget and add padding property **
         ** however if we are just adding the container to just add padding then just use Padding widget **
+    
+        if we don't assign width in container, the items are as big as they need to be
+        added notse
