@@ -340,3 +340,29 @@ Jot:
         dart uses 'where' - runs on every item in the list and returns those that satisfy the condition provided in it
         datetime.isAfter()
         where() - returns iterable not the list, so convert to .toList
+
+    100. show summed up transactions in chart
+    i.e., chart widget: children: <Widget>[], 
+    create bars for the chart - bars widget - stateless widget as no data has to be changed
+    add variables to be used in this widget
+    and init with constructor
+    widget should return column with (amount $ at top), (container to show bar with child partial bg - stack widget), label
+    we use stack because the below container will have white bg and on top of it another container with a different bg
+
+    FractionallySizedBox - to create a box that is fraction of another value
+    takes in heightFactor: 1 - 100% of surrounding container
+
+    101. pass values to chart_bar widget
+        create totalSpending getter fn: 
+            .fold on double - allows to change lists to another type based on fn passed
+            similar to reduce()
+            first arg - starting value,
+            second arg - anoynmous fn: return a new value that will be added to first arg (starting value)
+                first arg: sum - has the cumulative value
+                second arg: item
+            
+        pass this fn to constructor of chart_bar
+        to recognize the value as double do as :
+            (data['amount'] as double)/totalSpending
+        
+        now the chart is displayed
