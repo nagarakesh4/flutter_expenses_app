@@ -307,3 +307,36 @@ Jot:
             - assets/images/spending-logo.png
         add fit: Boxfit.cover - filts the image into container, here the parent is Column and column takes as much as they can get, so wrap the Image inside a container and set container height to 200, now boxfit will take height of its direct parent (ccontainer) and squeeze the image in there 
         add SizedBox() - adds a box with specific size, takes in width and height, doesn't mandatory have to child, so if no child they can be used as seperators (empty div/s)
+
+    96.
+        showing charts - stateless widget, as no need to change data with state changes but only with external data
+        there are external chart packages for complexing charting functionality
+        widgets/chart.dart
+    97.
+        List.generate - utility to generate new list (constructor)
+        add getter:
+
+        List<Map<String, Object>> get groupedTransactionValues {
+            return List.generate(7, (index) {
+            return {'day': 'T', 'amount': '9.99'};
+            });
+        }
+
+        first arg: total number of generations
+        second arg: index
+        third arg: return Map
+
+        it recieves recentTransactions from external
+
+        Chart takes in : day name and day amount
+        DateFormat.E - shortcut to get single character of the day name - takes in the date object
+        to sum all the recent transactions  - for loop
+        compare the day/mont/year equal
+    
+    98. add chart.dart logic to caclualte total sum
+
+    99. add chart inside main.dart
+        add getter fn to fetch recent transactions to populate chart.dart constructor
+        dart uses 'where' - runs on every item in the list and returns those that satisfy the condition provided in it
+        datetime.isAfter()
+        where() - returns iterable not the list, so convert to .toList
