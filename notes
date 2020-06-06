@@ -406,3 +406,11 @@ Jot:
             title: 
             subtitle:
             trailing: can include buttons
+        
+        to add fontSize, use style: TextStyle widget with fontSize property
+    
+    105. wrap FittedBox with container on the $ amount to set a height
+    transactions.reversed.toList()
+
+    CircleAvatar = Container + decoration - boxdecoration with color and shape BoxShape.circle - height + width
+    
