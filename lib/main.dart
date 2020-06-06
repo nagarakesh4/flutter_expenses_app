@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
         accentColor: Colors.orangeAccent,
         fontFamily: 'Quicksand',
+        errorColor: Colors.red,
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.light().textTheme.copyWith(
                 headline6: TextStyle(
@@ -101,6 +102,12 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  void _deleteNewTransaction(String id){
+    setState((){
+      _userTransactions.removeWhere((item) => item.id == id);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,6 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
             //user transactions widget to view transactions
             TransactionList(
               transactions: _userTransactions,
+              deleteNewTransaction: _deleteNewTransaction
             )
           ],
         ),

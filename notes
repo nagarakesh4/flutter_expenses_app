@@ -506,4 +506,9 @@ Jot:
                                 ? 'No date chosen!'
                                 : 'Txn Date: ${DateFormat.yMd().format(_selectedDate)}',
                         ),
+        110.  delete transaction:
+        show button in trailing of listview
+            IconButton(icon: Icon(Icons.delete)
         
+        add delete transaction fn in main.dart, 
+        void _deleteNewTransaction(String id){
