@@ -397,3 +397,12 @@ Jot:
     
         if we don't assign width in container, the items are as big as they need to be
         added notse
+
+    104.
+        often used in conjunction with list
+        ListTile - 
+            leading: at beginning -can include like CircleAvatar widget with radius and text properties
+                wrap child into Fittedbox 
+            title: 
+            subtitle:
+            trailing: can include buttons
