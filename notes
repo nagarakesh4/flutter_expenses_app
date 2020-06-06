@@ -412,5 +412,98 @@ Jot:
     105. wrap FittedBox with container on the $ amount to set a height
     transactions.reversed.toList()
 
-    CircleAvatar = Container + decoration - boxdecoration with color and shape BoxShape.circle - height + width
+    106. CircleAvatar = Container + decoration - boxdecoration with color and shape BoxShape.circle - height + width
+
+    107.
+        Datepicker:
+            In new_transaction.dart
+            add row:
+                    text
+                    flatbutton
+            row doesn't have height, so wrap it in container
+            Container with height and above row
+            
+            set textTheme in main.dart 
+                textTheme: ThemeData.light().textTheme.copyWith(
+                title: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 20,
+                ),
+                button: TextStyle(color: Colors.white)
+              ),
+              and refer above styles in buttons and titles
+
+        title is deprecated switch to headline6
+        add custom themes
     
+    108.
+        add function to display datepicker in new_transaction.dart
+        showDatePicker is the 
+        showDatePicker(context: null, initialDate: null, firstDate: null, lastDate: null)
+        like showModalBottomSheet
+
+        void _displayDatepicker() {
+            showDatePicker(
+                context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime(2010, 3, 20),
+                lastDate: DateTime.now().add(
+                Duration(days: 10),
+                ),
+            );
+        }
+        pretty self explanatory
+        as described in 92, new_transaction.dart is not converted to statefull widget and hence the above func is in diff place when compared to the video
+
+        showDatePicker: returns Future
+        class in Dart
+            to create objects in future (like http request when waiting for response)
+            similarly when datepicker responses with future class as we aren't sure when will the user selects a date
+            to be informed on that like when the user selects a date, use .then() on showDatePicker returns anonymous function
+
+            in the then block set a variable to the returned response
+            use this variable in the UI, 
+            by importing intl package to display DateFormat.ymd().format(_selectedDate)
+
+            to make the date reflected, have to use setState and hence now converting the new_transaction.dart widget to stateful widget
+
+            now in row to set the elements to end using MainAxisAlignment.spacebetween on Row[]
+            
+            or Flexible FlexFit.tight on the first child of row
+            Flexible(
+              fit: FlexFit.tight,  
+              FlexFit.tight - The child is forced to fill the available space.
+            
+            or thru Expanded:
+                Expanded widget is simply the Flexible widget with FlexFit tight and therefore it has no 'fit' argument
+
+            child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+            
+            expanded:
+                Container(
+                    height: 70,
+                    child: Row(
+                        children: <Widget>[
+                        Expanded(
+                            child: Text(
+                            _selectedDate == null
+                                ? 'No date chosen!'
+                                : 'Txn Date: ${DateFormat.yMd().format(_selectedDate)}',
+                            ),
+                        ),
+
+            mainAxisAlignment:
+                Container(
+                    height: 70,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                        Text(
+                            _selectedDate == null
+                                ? 'No date chosen!'
+                                : 'Txn Date: ${DateFormat.yMd().format(_selectedDate)}',
+                        ),
+        

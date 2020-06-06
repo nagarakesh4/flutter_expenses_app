@@ -19,13 +19,23 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Quicksand',
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.light().textTheme.copyWith(
-                title: TextStyle(
+                headline6: TextStyle(
                   fontFamily: 'OpenSans',
                   fontSize: 20,
                 ),
               ),
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: ThemeData.light().textTheme.copyWith(
+              headline6: TextStyle(
+                fontFamily: 'OpenSans',
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+              button: TextStyle(
+                color: Colors.white,
+              ),
+            ),
       ),
       home: MyHomePage(),
     );
@@ -66,17 +76,17 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  void _addNewTransaction(String title, double amount) {
+  void _addNewTransaction(String title, double amount, DateTime selectedDate) {
     final newTransaction = Transaction(
       amount: amount,
-      dateTime: DateTime.now(),
+      dateTime: selectedDate,
       id: 't${_userTransactions.length + 1}',
       title: title,
     );
 
     setState(() {
       //add will only add the new element to the _userTransactions but will not generate a new pointer
-      _userTransactions.add(newTransaction);
+      _userTransactions.insert(0, newTransaction);
     });
   }
 
