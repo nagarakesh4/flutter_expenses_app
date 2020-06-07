@@ -102,8 +102,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void _deleteNewTransaction(String id){
-    setState((){
+  void _deleteNewTransaction(String id) {
+    setState(() {
       _userTransactions.removeWhere((item) => item.id == id);
     });
   }
@@ -129,9 +129,10 @@ class _MyHomePageState extends State<MyHomePage> {
               recentTransactions: _recentTransactions,
             ),
             //user transactions widget to view transactions
-            TransactionList(
-              transactions: _userTransactions,
-              deleteNewTransaction: _deleteNewTransaction
+            Expanded(
+              child: TransactionList(
+                  transactions: _userTransactions,
+                  deleteNewTransaction: _deleteNewTransaction),
             )
           ],
         ),

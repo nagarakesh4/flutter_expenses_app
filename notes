@@ -512,3 +512,15 @@ Jot:
         
         add delete transaction fn in main.dart, 
         void _deleteNewTransaction(String id){
+        
+        111.
+            wrapping ListTransactions widget in main.dart with Expanded will cause an error, because
+            the list_transactions.dart has ListView container which takes up infinite height, so it is two informations
+            the Expanded already says to take up available space and using ListView it says again i will take infinite height???
+            before calculating manual pixel based on device etc.., the other hacky soln is:
+                nothing, will have to wait for next section.. lol
+        
+        112.
+            summary of what discussed on Custom widgets
+            refer official docs for different custom widgets
+            
